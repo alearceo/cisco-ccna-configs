@@ -1,0 +1,8 @@
+!
+vlan 10
+  name vlan-10
+!
+interface FastEthernet0/3
+  switchport access vlan 10
+  switchport mode access
+!
