@@ -17,3 +17,8 @@ ip access-list extended RoutingProtocolExample
 !
 interface Serial0/1/0
   ip access-group allowed-out out
+!
+interface GigabitEthernet0/2
+  ip access-group allow-routing-protocols in
+!
+!
