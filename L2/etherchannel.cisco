@@ -1,0 +1,9 @@
+!
+!
+interface GigabitEthernet0/0
+  ! To enable PAgP
+  channel-group 1 mode desirable
+  ! To enable LACP
+  channel-group 1 mode active
+  ! To enable manual Etherchannel
+  channel-group 1 mode on

@@ -1,0 +1,20 @@
+!
+vtp mode transparent
+!
+vlan 10
+  name data-10
+!
+vlan 11
+  name voice-11
+!
+interface GigabitEthernet0/1
+  switchport mode trunk
+  switchport trunk encapsulation dot1q
+  switchport nonegotiate
+!
+interface GigabitEthernet0/2
+  switchport mode dynamic desirable
+  switchport trunk encapsulation dot1q
+  switchport trunk allowed vlan remove 11
+!
+!

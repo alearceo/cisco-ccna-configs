@@ -1,0 +1,18 @@
+!
+interface FastEthernet0/1
+  switchport mode access
+  switchport port-security
+  switchport port-security mac-address sticky
+  switchport port-security violation protect 
+  switchport port-security maximum 3
+
+interface FastEthernet0/2
+    switchport mode access
+    switchport port-security
+    switchport port-security violation restrict
+    switchport port-security mac-address 0000.1111.2222
+
+interface FastEthernet0/3
+    switchport mode access
+    switchport port-security
+    switchport port-security maximum 8 

@@ -1,0 +1,15 @@
+!
+vtp mode transparent
+!
+vlan 10
+  name data-10
+!
+!
+  name voice-11
+!
+interface GigabitEthernet0/1
+  switchport mode access
+  switchport access vlan 10
+  switchport voice vlan 11
+!
+!
