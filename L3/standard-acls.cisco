@@ -1,0 +1,13 @@
+!
+!
+access-list 1 permit 192.168.10.1
+access-list 1 deny 192.168.10.128 0.0.0.127
+!
+access-list 2 remark this ACL deny packets with source IP address 10.0.1.1 and allow any other packets
+access-list 2 deny 10.0.1.1
+access-list 2 permit any
+!
+!
+interface GigabitEthernet0/0
+  ip access-group 1 in
+  ip access-group 2 out

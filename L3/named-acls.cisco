@@ -1,0 +1,19 @@
+!
+!
+ip access-list extended allowed-out
+  permit tcp 192.168.10.0 0.0.0.255 gt 1023 10.0.0.0 0.255.255.255 eq www
+  deny icmp any any
+  permit udp any 10.0.0.0 0.255.255.255 eq 69
+  deny ip any any
+  !
+!
+!
+ip access-list extended RoutingProtocolExample
+  permit udp any any eq 520
+  permit ospf any any
+  permit eigrp any any
+!
+!
+!
+interface Serial0/1/0
+  ip access-group allowed-out out

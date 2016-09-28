@@ -1,0 +1,15 @@
+!
+!
+access-list 101 permit ip host 10.0.0.1 192.168.1.0 0.0.0.255
+access-list 101 deny tcp 10.0.0.0 0.0.255.255 range 20 60 192.168.0.0 0.0.0.127
+access-list 101 permit ip any any
+!
+!
+access-list 2100 deny icmp 172.16.3.0 0.0.255.255 any
+access-list 2100 permit udp any host 10.0.0.1 eq 69 log
+access-list 2100 permit ip any any
+!
+!
+interface Serial0/1/0
+  ip access-group 101 in
+  ip access-group 2100 out

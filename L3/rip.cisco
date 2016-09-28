@@ -1,0 +1,13 @@
+!
+!
+router rip
+  version 2
+  network 172.16.0.0
+  network 192.168.1.0
+  ! To disable default route summarization
+  no auto-summary
+  ! To modify maximum-paths default value 4
+  maximum-paths 5
+  !
+  ! To tell RIP to not advertise updates over listed interface
+  passive-interface GigabitEthernet0/0

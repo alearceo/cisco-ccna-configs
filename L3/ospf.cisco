@@ -1,0 +1,28 @@
+!
+!
+router ospf 1
+  router-id 1.1.1.1
+  network 192.168.0.0 0.0.0.255 area 0
+  network 172.16.3.0 0.0.0.255 area 3
+  passive-interface GigabitEthernet0/0
+  ! to advertise default routes use
+  default-information originate
+  ! load balancing capabilities can be handle
+  maximum-paths 6 ! default is 4
+!
+!
+!
+interface GigabitEthernet0/0
+  ! different ways to influence cost
+  ip ospf cost 100
+  !
+  bandwidth 100000
+  !
+  ! the default reference is set to 100000 Kpbs to influence it and add support
+  ! to fastest interfaces
+  auto-cost reference-bandwidth 1000000
+  !
+!
+!
+interface GigabitEthernet0/1
+  ip ospf 1 area 4

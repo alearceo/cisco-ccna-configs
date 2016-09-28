@@ -1,0 +1,25 @@
+!
+!! Source NAT
+!
+! PAT
+!
+ip access-list standard pat-acl
+  permit 192.168.30.0 0.0.0.255
+!
+access-list 1 permit 192.168.40.0 0.0.0.255
+!
+ip nat pool pat-pool 64.160.30.17 64.160.30.25 netmask 255.255.255.240
+!
+ip nat inside source list 1 interface Serial0/0/0 overload
+!
+ip nat inside source list pat-acl pool pat-pool overload
+!
+!
+interface GigabitEthernet0/0
+  ip address 192.168.30.254 255.255.255.0
+  ip nat inside
+!
+!
+interface Serial0/0/0
+  ip address 200.10.10.1 255.255.255.252
+  ip nat outside

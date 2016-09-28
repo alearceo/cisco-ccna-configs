@@ -1,0 +1,12 @@
+!
+!
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+!
+ip dhcp pool lan-pool
+  network 192.168.10 255.255.255.0
+  default-router 192.168.10.1
+  dns-server 172.30.1.1
+  lease 0 23 59
+  domain-name cisco.lab
+  ! TFTP server use by some host like phones
+  next-server 172.16.20.1

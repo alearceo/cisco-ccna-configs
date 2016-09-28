@@ -1,0 +1,17 @@
+!
+!
+interface GigabitEthernet0/0.100
+  encapsulation dot1q 100
+  ip address 192.168.100.254 255.255.255.0
+!
+!
+! to configure a router interface as native VLAN on a trunk
+interface GigabitEthernet0/1.10
+  encapsulation dot1q 10 native
+  ip address 192.168.10.254 255.255.255.0
+!
+! or just set and ip address on that subnet without the encapsulation command
+interface GigabitEthernet0/1
+  ip address 192.168.10.254 255.255.255.0
+!
+!

@@ -1,0 +1,21 @@
+!
+!
+router eigrp 99
+  eigrp router-id 1.1.1.1
+  network 10.1.0.0
+  network 192.168.0.0 0.0.0.255
+  network 172.29.1.1 0.0.0.0
+  ! load balancing can be handle
+  maximum-paths 6
+  ! to support unequal-cost load balancing
+  variance 2 ! default 1
+  !
+  ! to enable route summarization
+  auto-summary
+  !
+  passive-interface GigabitEthernet0/0
+  !
+!
+interface GigabitEthernet0/1
+  ! to influence metric calculation
+  delay 123 ! in tens of microseconds => 1230 microseconds

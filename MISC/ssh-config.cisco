@@ -1,0 +1,15 @@
+!
+hostname sw1
+ip domain-name example.com
+!
+crypto key generate rsa modulus 1024
+! for general purpose keys; choice between 360 - 2048-bit keys
+! at least 768-bit keys for SSHv2 support
+!
+username ale secret arceo
+!
+ip ssh version 2
+
+line vty 0 15
+  login local
+  transport input ssh
