@@ -7,3 +7,5 @@ interface GigabitEthernet0/0
   channel-group 1 mode active
   ! To enable manual Etherchannel
   channel-group 1 mode on
+!
+!

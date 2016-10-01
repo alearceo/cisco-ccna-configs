@@ -16,3 +16,5 @@ interface FastEthernet0/3
     switchport mode access
     switchport port-security
     switchport port-security maximum 8 
+!
+!
